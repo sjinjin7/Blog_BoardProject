@@ -7,8 +7,15 @@
 	<!-- 게시판 등록 -->
 	<insert id="enroll">
 		
-		insert into vam_board(title, content, writer) values (#{title}, #{content}, #{writer});
+		insert into vam_board(title, content, writer) values (#{title}, #{content}, #{writer})
 		
 	</insert>
+	
+	<!-- 게시판 목록 -->
+	<select id="getList" resultType="com.vam.model.BoardVO">
+	
+		select * from vam_board
+	
+	</select>
 
   </mapper>
