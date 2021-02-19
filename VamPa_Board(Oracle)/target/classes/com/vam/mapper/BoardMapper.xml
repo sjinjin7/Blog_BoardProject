@@ -18,4 +18,11 @@
 	
 	</select>
 
+	<!-- 게시판 조회 -->
+	<select id="getPage" resultType="com.vam.model.BoardVO">
+	
+		select * from vam_board where bno = #{bno}
+	
+	</select>
+
   </mapper>
