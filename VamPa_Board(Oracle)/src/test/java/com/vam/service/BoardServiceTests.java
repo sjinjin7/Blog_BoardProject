@@ -2,8 +2,6 @@ package com.vam.service;
 
 
 
-import java.util.List;
-
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
@@ -11,6 +9,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
+import com.vam.model.BoardVO;
 
 
 
@@ -50,6 +50,7 @@ public class BoardServiceTests {
 	*/
 	
 	/*게시판 조회*/
+	/*
 	@Test
 	public void testGETPage() {
 		
@@ -58,6 +59,21 @@ public class BoardServiceTests {
 		log.info("" + service.getPage(bno));
 		
 	}
+	*/
 	
-
+	/* 게시판 수정 */
+	 @Test
+	 public void testModify() {
+		 
+		 BoardVO board = new BoardVO();
+		 board.setBno(8);
+		 board.setTitle("수정 제목");
+		 board.setContent("수정 내용");
+		 
+		 int result = service.modify(board);
+		 log.info("result : " +result);
+		 
+	 }	 
+	
+	
 }

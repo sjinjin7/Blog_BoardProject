@@ -1,7 +1,5 @@
 package com.vam.mapper;
 
-import java.util.List;
-
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
@@ -9,6 +7,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
+import com.vam.model.BoardVO;
 
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -60,15 +60,31 @@ public class BoardMapperTests {
 	 */
 	 
 	/* 게시판 조회 */
+	 /*
 	 @Test
 	public void testGetPage() {
 		
-		/* 실제 존재하는 페이지 */
+		// 실제 존재하는 페이지 
 		int bno = 8;
 		
 		log.info("" + mapper.getPage(bno));
 		
 	}
+	*/
+	 
+	/* 게시판 수정 */
+	 @Test
+	 public void testModify() {
+		 
+		 BoardVO board = new BoardVO();
+		 board.setBno(8);
+		 board.setTitle("수정페이지");
+		 board.setContent("수정수정");
+		 
+		 int result = mapper.modify(board);
+		 log.info("result : " +result);
+		 
+	 }	 
 	 
 
 }

@@ -34,6 +34,14 @@ public class BoardServiceImpl implements BoardService {
 	public BoardVO getPage(int bno) {
 		 
 		return mapper.getPage(bno);
+	}
+
+	
+	/* 게시판 수정 */
+	@Override
+	public int modify(BoardVO board) {
+		
+		return mapper.modify(board);
 	}		
 	
 }
