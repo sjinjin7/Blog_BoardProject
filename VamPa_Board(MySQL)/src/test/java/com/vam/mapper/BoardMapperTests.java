@@ -73,19 +73,30 @@ public class BoardMapperTests {
 	*/
 	 
 	 
-	/* 게시판 수정 */
+		/* 게시판 수정 */
+	 /*
 	 @Test
 	 public void testModify() {
 		 
 		 BoardVO board = new BoardVO();
-		 board.setBno(200);
+		 board.setBno(8);
 		 board.setTitle("수정페이지");
 		 board.setContent("수정수정");
 		 
 		 int result = mapper.modify(board);
 		 log.info("result : " +result);
 		 
-	 }
+	 }	
+	 */
+	 
+	/* 게시판 삭제 */
+	@Test
+	public void testDelete() {
+		
+		int result = mapper.delete(11);
+		log.info("result : " + result);
+		
+	}
 	 
 	 
 	 

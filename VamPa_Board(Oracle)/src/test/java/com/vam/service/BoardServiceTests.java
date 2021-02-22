@@ -62,6 +62,7 @@ public class BoardServiceTests {
 	*/
 	
 	/* 게시판 수정 */
+	/*
 	 @Test
 	 public void testModify() {
 		 
@@ -74,6 +75,16 @@ public class BoardServiceTests {
 		 log.info("result : " +result);
 		 
 	 }	 
+	*/
 	
+	/* 게시판 삭제 */
+	 @Test
+	 public void testDelete() {
+		 
+		 int result = service.delete(22);
+		 log.info("result : " + result);
+		 
+	 }
+	 
 	
 }

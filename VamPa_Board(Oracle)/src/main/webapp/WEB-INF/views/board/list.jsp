@@ -109,6 +109,10 @@ $(document).ready(function(){
 		if(result === "modify success"){
 			alert("수정이 완료되었습니다.");
 		}
+		
+		if(result === "delete success"){
+			alert("삭제가 완료되었습니다.");
+		}		
 	}	
 	
 });

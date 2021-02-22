@@ -33,4 +33,11 @@
 	
 	</update>	
 
+	<!-- 게시판 삭제 -->
+	<delete id="delete">
+	
+		delete from vam_board where bno = #{bno}
+	
+	</delete>
+
   </mapper>
