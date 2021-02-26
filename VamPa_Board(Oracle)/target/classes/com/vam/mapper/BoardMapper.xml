@@ -25,7 +25,23 @@
 	
 	</select>
 	
+	<!-- 게시물 목록(페이징) -->
+	<select id="getListPaging" resultType="com.vam.model.BoardVO">
 	
+	<![CDATA[
+		
+		select bno, title, content, writer, regdate, updatedate from(
+		
+		        select /*+INDEX_DESC(vam_board pk_board) */ rownum  as rn, bno, title, content, writer, regdate, updatedate
+		          
+		        from vam_board where rownum <= #{pageNum} * #{amount}) 
+		        
+		where rn > (#{pageNum} -1) * #{amount}
+	
+	]]>
+	
+	</select>
+		
 	<!-- 게시판 수정 -->
 	<update id="modify">
 	

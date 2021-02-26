@@ -17,6 +17,17 @@
 		select * from vam_board
 	
 	</select>
+	
+	<!-- 게시물 목록(페이징) -->
+	<select id="getListPaging" resultType="com.vam.model.BoardVO">
+	
+		select * from (
+				select bno, title, writer, regdate, updatedate  
+        		from vam_board order by bno desc) as T1 
+		<!-- limit ((${pageNum}-1)*${amount}), ${amount} -->
+		limit #{skip},#{amount}
+	
+	</select>
 
 	<!-- 게시판 조회 -->
 	<select id="getPage" resultType="com.vam.model.BoardVO">
