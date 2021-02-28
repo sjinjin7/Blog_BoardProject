@@ -80,18 +80,22 @@ public class BoardController {
 	
 	/* 게시판 조회 */
 	@GetMapping("/get")
-	public void boardGetPageGET(int bno, Model model) {
+	public void boardGetPageGET(int bno, Model model, Criteria cri) {
 		
 		model.addAttribute("pageInfo", bservice.getPage(bno));
+		
+		model.addAttribute("cri", cri);
 		
 	}
 	
 	
 	/* 수정 페이지 이동 */
 	@GetMapping("/modify")
-	public void boardModifyGET(int bno, Model model) {
+	public void boardModifyGET(int bno, Model model, Criteria cri) {
 		
 		model.addAttribute("pageInfo", bservice.getPage(bno));
+		
+		model.addAttribute("cri", cri);
 		
 	}
 	
