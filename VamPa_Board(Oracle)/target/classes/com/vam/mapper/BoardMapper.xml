@@ -55,5 +55,12 @@
 		delete from vam_board where bno = #{bno}
 	
 	</delete>
+	
+	<!-- 게시물 총 개숫 -->
+	<select id="getTotal" resultType="int">
+	
+		select count(*) from vam_board
+	
+	</select>	
 
   </mapper>

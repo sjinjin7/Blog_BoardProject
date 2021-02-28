@@ -103,6 +103,7 @@ public class BoardMapperTests {
 	 */
 	 
 		/* 게시판 목록(페이징 적용)테스트 */
+	 /*
 	 @Test
 	 public void testGetListPaging() {
 		 
@@ -113,6 +114,16 @@ public class BoardMapperTests {
 		 List list = mapper.getListPaging(cri);
 		 
 		 list.forEach(board -> log.info("" + board));
+	 }
+	 */
+	 
+		/* 게시물 총 갯수 */
+	 @Test
+	 public void testGetTotal() {
+	
+		 int result = mapper.getTotal();
+		 
+		 log.info("" + result);
 	 }
 	 
 	 

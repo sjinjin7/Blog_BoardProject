@@ -89,6 +89,7 @@ public class BoardServiceTests {
 	 */
 	
 	/* 게시판 조회(페이징 적용) */
+	/*
 	@Test
 	public void testGetListPaging() {
 		
@@ -100,4 +101,20 @@ public class BoardServiceTests {
 		
 		
 	}
+	*/
+	
+	/* 게시물 총 갯수 */
+	@Test
+	public void testGetTotal() {
+		
+		int result = service.getTotal();
+		
+		log.info("" + result);
+		
+	}
+	
+	
+	
+	
+	
 }

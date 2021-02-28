@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.vam.mapper.PageMakerDTO;
 import com.vam.model.BoardVO;
 import com.vam.model.Criteria;
 import com.vam.service.BoardService;
@@ -43,6 +44,12 @@ public class BoardController {
 		log.info("boardListGET");
 		
 		model.addAttribute("list", bservice.getListPaging(cri));
+		
+		int total = bservice.getTotal();
+		
+		PageMakerDTO pageMake = new PageMakerDTO(cri, total);
+		
+		model.addAttribute("pageMaker", pageMake);
 		
 	}	
 	
