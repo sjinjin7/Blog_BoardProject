@@ -103,25 +103,29 @@ public class BoardMapperTests {
 	 */
 	 
 		/* 게시판 목록(페이징 적용)테스트 */
-	 /*
+	 
 	 @Test
 	 public void testGetListPaging() {
 		 
-		 Criteria cri = new Criteria(2,10);
+		 Criteria cri = new Criteria();
 		 
-		 cri.setPageNum(3);
+		 cri.setKeyword("w");
 		 				 
 		 List list = mapper.getListPaging(cri);
 		 
 		 list.forEach(board -> log.info("" + board));
 	 }
-	 */
+	 
 	 
 		/* 게시물 총 갯수 */
+	 
 	 @Test
 	 public void testGetTotal() {
 	
-		 int result = mapper.getTotal();
+		 Criteria cri = new Criteria();
+		 cri.setKeyword("service");
+		 System.out.println("------------------------------------" + cri);
+		 int result = mapper.getTotal(cri);
 		 
 		 log.info("" + result);
 	 }

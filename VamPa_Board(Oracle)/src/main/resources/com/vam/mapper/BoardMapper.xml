@@ -34,8 +34,16 @@
 		
 		        select /*+INDEX_DESC(vam_board pk_board) */ rownum  as rn, bno, title, content, writer, regdate, updatedate
 		          
-		        from vam_board where rownum <= #{pageNum} * #{amount}) 
-		        
+		        from vam_board where rownum <= #{pageNum} * #{amount} 
+	]]>	        
+		        <if test="keyword != null">
+		        	and title like '%'||#{keyword}||'%' 
+		        </if>
+	
+	<![CDATA[
+			        
+			    )
+			        
 		where rn > (#{pageNum} -1) * #{amount}
 	
 	]]>
@@ -60,6 +68,12 @@
 	<select id="getTotal" resultType="int">
 	
 		select count(*) from vam_board
+		
+		<if test="keyword != null">
+		
+			where title like '%'||#{keyword}||'%'
+		
+		</if>
 	
 	</select>	
 

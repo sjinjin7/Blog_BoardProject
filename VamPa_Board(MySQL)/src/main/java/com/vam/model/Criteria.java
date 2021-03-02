@@ -1,7 +1,7 @@
 package com.vam.model;
 
 public class Criteria {
-
+	
 	/* 현재 페이지 */
 	private int pageNum;
 	
@@ -10,6 +10,9 @@ public class Criteria {
 	
 	/* 스킵 할 게시물 수( (pageNum-1) * amount ) */
 	private int skip;
+	
+	/* 검색어 키워드 */
+	private String keyword;
 	
 	/* 기본 생성자 -> 기봅 세팅 : pageNum = 1, amount = 10 */
 	public Criteria() {
@@ -55,11 +58,19 @@ public class Criteria {
 		this.skip = skip;
 	}
 
-	@Override
-	public String toString() {
-		return "Criteria [pageNum=" + pageNum + ", amount=" + amount + ", skip=" + skip + "]";
+	public String getKeyword() {
+		return keyword;
 	}
 
+	public void setKeyword(String keyword) {
+		this.keyword = keyword;
+	}
 
+	@Override
+	public String toString() {
+		return "Criteria [pageNum=" + pageNum + ", amount=" + amount + ", skip=" + skip + ", keyword=" + keyword + "]";
+	}
+
+	
 	
 }

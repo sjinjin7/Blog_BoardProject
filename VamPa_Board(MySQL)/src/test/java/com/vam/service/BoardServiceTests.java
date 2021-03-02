@@ -89,11 +89,13 @@ public class BoardServiceTests {
 	 */
 	
 	/* 게시판 조회(페이징 적용) */
-	/*
+	
 	@Test
 	public void testGetListPaging() {
 		
 		Criteria cri = new Criteria();
+		
+		cri.setKeyword("service");
 		
 		List list = service.getListPaging(cri);
 		
@@ -101,9 +103,10 @@ public class BoardServiceTests {
 		
 		
 	}
-	*/
+	
 	
 	/* 게시물 총 갯수 */
+	/*
 	@Test
 	public void testGetTotal() {
 		
@@ -112,7 +115,7 @@ public class BoardServiceTests {
 		log.info("" + result);
 		
 	}
-	
+	*/
 	
 	
 	

@@ -109,7 +109,7 @@ public class BoardMapperTests {
 		 
 		 Criteria cri = new Criteria();
 		 
-		 cri.setPageNum(3);
+		 cri.setKeyword("검색");
 		 				 
 		 List list = mapper.getListPaging(cri);
 		 
