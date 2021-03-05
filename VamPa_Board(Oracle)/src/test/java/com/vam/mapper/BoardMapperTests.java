@@ -109,8 +109,14 @@ public class BoardMapperTests {
 		 
 		 Criteria cri = new Criteria();
 		 
-		 cri.setKeyword("검색");
-		 				 
+		 
+		 
+		 cri.setType("TWC");
+		 String[] typeArr = cri.getTypeArr();
+		 
+		 for(int i = 0; i < typeArr.length;i++) {
+			 System.out.println("typeArr : " + typeArr[i]);
+		 }
 		 List list = mapper.getListPaging(cri);
 		 
 		 list.forEach(board -> log.info("" + board));

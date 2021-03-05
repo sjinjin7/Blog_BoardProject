@@ -4,6 +4,29 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   <mapper namespace="com.vam.mapper.BoardMapper">
 
+	<!-- 검색 조건문 -->
+	<sql id="criteria">
+		<trim prefix="where (" suffix=")" prefixOverrides="OR">
+			<foreach collection="typeArr" item="type">
+				<trim prefix="OR">
+					<choose>
+						<when test="type == 'T'.toString()">
+							title like concat('%',#{keyword},'%') 
+						</when>
+						<when test="type == 'C'.toString()">
+							content like concat('%',#{keyword},'%') 
+						</when>
+						<when test="type == 'W'.toString()">
+							writer like concat('%',#{keyword},'%' )
+						</when>
+					</choose>
+				</trim>
+			</foreach>
+		</trim>
+	
+	</sql>
+
+
 	<!-- 게시판 등록 -->
 	<insert id="enroll">
 		
@@ -24,10 +47,8 @@
         select * from (
                 select bno, title, writer, regdate, updatedate  
                 from vam_board 
-				<if test="keyword != null">
-				
-					where title like concat('%',#{keyword},'%')
-				
+                <if test="keyword != null">
+					<include refid="criteria"></include>
 				</if>
                 order by bno desc) as T1
         limit #{skip},#{amount}
@@ -60,11 +81,9 @@
 	
 		select count(*) from vam_board
 		
-			<if test="keyword != null">
-			
-				where title like concat('%',#{keyword},'%')
-			
-			</if>
+		<if test="keyword != null">
+			<include refid="criteria"></include>
+		</if>	
 	
 	</select>
 

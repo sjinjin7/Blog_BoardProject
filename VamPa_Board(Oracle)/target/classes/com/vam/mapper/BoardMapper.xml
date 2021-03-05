@@ -4,6 +4,28 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   <mapper namespace="com.vam.mapper.BoardMapper">
 
+	<!-- 검색 조건문 -->
+	<sql id="criteria">
+		<trim prefix="AND (" suffix=")" prefixOverrides="OR">
+			<foreach collection="typeArr" item="type">
+				<trim prefix="OR">
+					<choose>
+						<when test="type == 'T'.toString()">
+							title like '%'||#{keyword}||'%' 
+						</when>
+						<when test="type == 'C'.toString()">
+							content like '%'||#{keyword}||'%' 
+						</when>
+						<when test="type == 'W'.toString()">
+							writer like '%'||#{keyword}||'%' 
+						</when>
+					</choose>
+				</trim>
+			</foreach>
+		</trim>
+	
+	</sql>
+
 	<!-- 게시판 등록 -->
 	<insert id="enroll">
 		
@@ -37,7 +59,7 @@
 		        from vam_board where rownum <= #{pageNum} * #{amount} 
 	]]>	        
 		        <if test="keyword != null">
-		        	and title like '%'||#{keyword}||'%' 
+		        	<include refid="criteria"></include> 
 		        </if>
 	
 	<![CDATA[
@@ -71,7 +93,7 @@
 		
 		<if test="keyword != null">
 		
-			where title like '%'||#{keyword}||'%'
+			where bno > 0 <include refid="criteria"></include>
 		
 		</if>
 	
